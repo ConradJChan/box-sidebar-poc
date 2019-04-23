@@ -12,19 +12,21 @@
         <div class="container"></div>
 
         <script>
-            var sidebar = new Box.ContentSidebar();
-            sidebar.show(FILE_ID, ACCESS_TOKEN, {
-                container: '.container',
-                detailsSidebarProps: {
-                    hasNotices: true,
-                    hasProperties: true,
-                    hasAccessStats: true,
-                    hasVersions: true
-                },
-                hasActivityFeed: true,
-                hasSkills: true,
-                hasMetadata: true
-            });
+            function init() {
+                var sidebar = new Box.ContentSidebar();
+                sidebar.show(FILE_ID, ACCESS_TOKEN, {
+                    container: '.container',
+                    detailsSidebarProps: {
+                        hasNotices: true,
+                        hasProperties: true,
+                        hasAccessStats: true,
+                        hasVersions: true
+                    },
+                    hasActivityFeed: true,
+                    hasSkills: true,
+                    hasMetadata: true
+                });
+            }
         </script>
     </body>
 </html>
