@@ -68,7 +68,18 @@
                     },
                     hasActivityFeed: true,
                     hasSkills: false,
-                    hasMetadata: false
+                    hasMetadata: false,
+                    features: {
+                        activityFeed: {
+                            tasks: {
+                                createFromComment: true,
+                                createButton: true,
+                                feedbackUrl: 'http://example.org/',
+                                newApi: true,
+                                newCards: true,
+                            },
+                        }
+                    }
                 });
             }
         </script>
