@@ -43,11 +43,11 @@
         <script>
             function init() {
                 var sidebar = new Box.ContentSidebar();
-                if (!FILE_ID || !ACCESS_TOKEN) {
+                if (!window.FILE_ID || !window.ACCESS_TOKEN) {
                     alert('No fileId or access token!');
                 }
 
-                sidebar.show(FILE_ID, ACCESS_TOKEN, {
+                sidebar.show(window.FILE_ID, window.ACCESS_TOKEN, {
                     container: '.container',
                     detailsSidebarProps: {
                         hasNotices: true,
