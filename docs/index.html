@@ -1,5 +1,8 @@
 <html>
     <head>
+        <script>
+            const t0 = performance.now();
+        </script>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <link href="https://cdn01.boxcdn.net/platform/elements/10.1.0/en-US/sidebar.css" rel="stylesheet" type="text/css"></link>
@@ -107,6 +110,9 @@
                     }
                 });
             }
+
+            const t1 = performance.now();
+            alert("took " + (t1 - t0) + " ms");
         </script>
     </body>
 </html>
