@@ -1,8 +1,10 @@
 <html>
     <head>
+        <script>
+            const t0 = performance.now();
+        </script>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-        <link href="https://cdn01.boxcdn.net/platform/elements/10.1.0/en-US/sidebar.css" rel="stylesheet" type="text/css"></link>
         <style>
             html,
             body,
@@ -13,15 +15,47 @@
                 padding: 0;
                 min-width: 320px;
                 background-color: #000;
-                color: #fff;
             }
         </style>
-
-        <script src="https://cdn01.boxcdn.net/polyfills/core-js/2.5.3/core.min.js"></script>
-        <script src="https://cdn01.boxcdn.net/platform/elements/10.1.0/en-US/sidebar.js"></script>
     </head>
 
     <body>
-        <div class="container"><h1>PREFETCH webview</h1></div>
+        <div class="container"></div>
+
+        <script>
+            function init() {
+                var sidebar = new Box.ContentSidebar();
+                if (!window.FILE_ID || !window.ACCESS_TOKEN) {
+                    alert('No fileId or access token!');
+                }
+
+                sidebar.show(window.FILE_ID, window.ACCESS_TOKEN, {
+                    container: '.container',
+                    detailsSidebarProps: {
+                        hasNotices: true,
+                        hasProperties: true,
+                        hasAccessStats: true,
+                        hasVersions: true
+                    },
+                    hasActivityFeed: true,
+                    hasSkills: false,
+                    hasMetadata: false,
+                    features: {
+                        activityFeed: {
+                            tasks: {
+                                createFromComment: true,
+                                createButton: true,
+                                feedbackUrl: 'http://example.org/',
+                                newApi: true,
+                                newCards: true,
+                            },
+                        }
+                    }
+                });
+            }
+
+            const t1 = performance.now();
+            console.log("took " + (t1 - t0) + " ms");
+        </script>
     </body>
 </html>
