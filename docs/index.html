@@ -113,7 +113,8 @@
             }
 
             const t1 = performance.now();
-            console.log("took " + (t1 - t0) + " ms");
+            window.loadTime = t1 - t0;
+            console.log("took " + (window.loadTime) + " ms");
         </script>
     </body>
 </html>
