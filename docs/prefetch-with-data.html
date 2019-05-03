@@ -1,0 +1,135 @@
+<html>
+    <head>
+        <script>
+            const t0 = performance.now();
+        </script>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <style>
+            html,
+            body,
+            .container {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+                min-width: 320px;
+                background-color: #grey;
+            }
+        </style>
+        <link href="https://cdn01.boxcdn.net/platform/elements/10.1.0/en-US/sidebar.css" rel="stylesheet" type="text/css"></link>
+        <style>
+                html,
+                body,
+                .container {
+                    width: 100%;
+                    height: 100%;
+                    margin: 0;
+                    padding: 0;
+                    min-width: 320px;
+                }
+
+                .container aside nav {
+                    display: none;
+                }
+
+                .bcs-content {
+                    width: 100%;
+                }
+
+                .be .bcs-activity-feed {
+                    width: 100%;
+                    display: block;
+                    height: auto;
+                }
+
+                .bcs-comment-input-container.bcs-activity-feed-comment-input {
+                    display: none;
+                }
+
+                .bcs-content .bcs-content-header {
+                    display: none;
+                }
+
+                .bcs-content .bcs-scroll-content-wrapper {
+                    position: unset;
+                }
+
+                .bcs-activity .bcs-scroll-content {
+                    height: auto;
+                }
+
+                .be.bcs {
+                    height: auto;
+                    min-height: 100%;
+                    max-width: 100%;
+                }
+
+                .be .bcs-task .bcs-task-avatar {
+                    height: 37px;
+                }
+
+                #timing {
+                    background-color: grey;
+                    height: 30px;
+                    line-height: 30px;
+                    margin: 10px;
+                    opacity: 0.5;
+                    padding: 5px;
+                    position: fixed;
+                    right: 0;
+                    top: 0;
+                    width: 100px;
+                }
+            </style>
+    </head>
+
+    <body>
+        <div class="container"></div>
+        <div id="timing">N/A</div>
+
+        <script>
+            const fileData = '{"type":"file","id":"419470392429","etag":"7","name":"Very Active Feed.docx","size":13155,"extension":"docx","file_version":{"type":"file_version","id":"471293813201","sha1":"7f692b004cf10c82a0430fd524ac97d92dcea16a"},"shared_link":null,"permissions":{"can_download":true,"can_preview":true,"can_upload":true,"can_comment":true,"can_rename":true,"can_delete":true,"can_share":true,"can_set_share_access":true,"can_invite_collaborator":true,"can_annotate":true,"can_view_annotations_all":true,"can_view_annotations_self":true},"content_created_at":"2019-03-11T10:23:00-07:00","content_modified_at":"2019-04-23T12:50:26-07:00","created_at":"2019-03-11T11:03:26-07:00","created_by":{"type":"user","id":"3923975771","name":"Conrad Chan","login":"conradchan@box.com"},"modified_at":"2019-04-23T12:51:42-07:00","modified_by":{"type":"user","id":"3923975771","name":"Conrad Chan","login":"conradchan@box.com"},"owned_by":{"type":"user","id":"3923975771","name":"Conrad Chan","login":"conradchan@box.com"},"description":"","metadata":null,"expires_at":null,"version_number":"5","is_externally_owned":false,"restored_from":null}';
+            const cache = {
+                "file_419470392429" : fileData
+            };
+
+            function init() {
+                var sidebar = new Box.ContentSidebar();
+                if (!window.FILE_ID || !window.ACCESS_TOKEN) {
+                    alert('No fileId or access token!');
+                }
+
+                sidebar.show(window.FILE_ID, window.ACCESS_TOKEN, {
+                    container: '.container',
+                    detailsSidebarProps: {
+                        hasNotices: true,
+                        hasProperties: true,
+                        hasAccessStats: true,
+                        hasVersions: true
+                    },
+                    hasActivityFeed: true,
+                    hasSkills: false,
+                    hasMetadata: false,
+                    features: {
+                        activityFeed: {
+                            tasks: {
+                                createFromComment: true,
+                                createButton: true,
+                                feedbackUrl: 'http://example.org/',
+                                newApi: true,
+                                newCards: true,
+                            },
+                        }
+                    },
+                    cache,
+                });
+            }
+
+            const t1 = performance.now();
+            window.loadTime = t1 - 10;
+            console.log("took " + (window.loadTime) + " ms");
+            document.getElementById('timing').innerHTML = parseInt(window.loadTime) + "ms";
+        </script>
+    </body>
+</html>
