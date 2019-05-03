@@ -68,11 +68,22 @@
                 .be .bcs-task .bcs-task-avatar {
                     height: 37px;
                 }
+
+                #timing {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    width: 100px;
+                    height: 30px;
+                    margin: 10px;
+                    background-color: grey;
+                }
             </style>
     </head>
 
     <body>
         <div class="container"></div>
+        <div id="timing">N/A</div>
 
         <script>
             function init() {
@@ -109,6 +120,7 @@
             const t1 = performance.now();
             window.loadTime = t1 - 10;
             console.log("took " + (window.loadTime) + " ms");
+            document.getElementById('timing').innerHTML = window.loadTime + "ms";
         </script>
     </body>
 </html>
