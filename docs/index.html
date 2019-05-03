@@ -56,6 +56,18 @@
             .be .bcs-task .bcs-task-avatar {
                 height: 37px;
             }
+
+            #timing {
+                background-color: grey;
+                height: 30px;
+                line-height: 30px;
+                margin: 10px;
+                padding: 5px;
+                position: absolute;
+                right: 0;
+                top: 0;
+                width: 100px;
+            }
         </style>
 
         <script src="https://cdn01.boxcdn.net/polyfills/core-js/2.5.3/core.min.js"></script>
@@ -64,6 +76,7 @@
 
     <body>
         <div class="container"></div>
+        <div id="timing">N/A</div>
 
         <script>
             function loadScript(url) {
@@ -115,6 +128,7 @@
             const t1 = performance.now();
             window.loadTime = t1 - t0;
             console.log("took " + (window.loadTime) + " ms");
+            document.getElementById('timing').innerHTML = parseInt(window.loadTime) + "ms";
         </script>
     </body>
 </html>
