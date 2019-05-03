@@ -120,7 +120,7 @@
             const t1 = performance.now();
             window.loadTime = t1 - 10;
             console.log("took " + (window.loadTime) + " ms");
-            document.getElementById('timing').innerHTML = window.loadTime + "ms";
+            document.getElementById('timing').innerHTML = parseInt(window.loadTime) + "ms";
         </script>
     </body>
 </html>
