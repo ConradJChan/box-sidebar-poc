@@ -87,7 +87,10 @@
 
     <body>
         <div class="container"></div>
-        <div id="timing">N/A</div>
+        <div id="timing">
+            <div id="load">N/A</div>
+            <div id="fmp">N/A</div>
+        </div>
 
         <script>
             function init() {
@@ -125,9 +128,8 @@
             const t1 = performance.now();
             window.loadTime = t1 - 10;
             console.log("took " + (window.loadTime) + " ms");
-            const assetsLoadedTiming = document.createElement('div');
-            div.innerHTML = 'Load: ' + parseInt(window.loadTime) + 'ms';
-            document.getElementById('timing').appendChild(div);
+            const assetsLoadedTiming = document.getElementById('load');
+            assetsLoadedTiming.innerHTML = 'Load: ' + parseInt(window.loadTime) + 'ms';
         </script>
     </body>
 </html>
