@@ -3,6 +3,16 @@
         <script>
             const t0 = performance.now();
             performance.mark('parse-html');
+
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('js/service-worker.js').then(registration => {
+                        console.log(`ServiceWorker registered ${registration.scope}`);
+                    }, err => {
+                        console.log(`ServiceWorker registration failed, ${err}`);
+                    });
+                });
+            }
         </script>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
