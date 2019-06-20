@@ -1,6 +1,6 @@
 const CACHE = 'poc-cache-v1';
 const urlsToCache = [
-    '/',
+    '/service_worker.html',
     'https://cdn01.boxcdn.net/polyfills/core-js/2.5.3/core.min.js',
     'https://cdn01.boxcdn.net/platform/elements/10.1.0/en-US/sidebar.js',
     'https://cdn01.boxcdn.net/platform/elements/10.1.0/en-US/sidebar.css'
